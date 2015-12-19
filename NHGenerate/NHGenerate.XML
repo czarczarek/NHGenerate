@@ -1,0 +1,325 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NHGenerate</name>
+    </assembly>
+    <members>
+        <member name="T:NHGenerate.Core.ClassGenerator">
+            <summary>
+            Generate model for datatables.
+            </summary>
+        </member>
+        <member name="M:NHGenerate.Core.ClassGenerator.NHibernateTableSchema(NHGenerate.Core.Setting)">
+            <summary>
+            Return NHibernate table schema mapping.
+            </summary>
+            <param name="setting"></param>
+            <returns></returns>
+        </member>
+        <member name="T:NHGenerate.Connect">
+            <summary>The object for implementing an Add-in.</summary>
+            <seealso class='IDTExtensibility2' />
+        </member>
+        <member name="M:NHGenerate.Connect.#ctor">
+            <summary>Implements the constructor for the Add-in object. Place your initialization code within this method.</summary>
+        </member>
+        <member name="M:NHGenerate.Connect.OnConnection(System.Object,Extensibility.ext_ConnectMode,System.Object,System.Array@)">
+            Add or change the registry key HKEY_CURRENT_USER\Software\Microsoft\VisualStudio\11.0\General\EnableVSIPLogging to 1.
+            Click on the toolbar or menu you want identify while keeping CTRL+SHIFT pressed
+            <summary>Implements the OnConnection method of the IDTExtensibility2 interface. Receives notification that the Add-in is being loaded.</summary>
+            <param term='application'>Root object of the host application.</param>
+            <param term='connectMode'>Describes how the Add-in is being loaded.</param>
+            <param term='addInInst'>Object representing this Add-in.</param>
+            <seealso class='IDTExtensibility2' />
+        </member>
+        <member name="M:NHGenerate.Connect.OnDisconnection(Extensibility.ext_DisconnectMode,System.Array@)">
+            <summary>Implements the OnDisconnection method of the IDTExtensibility2 interface. Receives notification that the Add-in is being unloaded.</summary>
+            <param term='disconnectMode'>Describes how the Add-in is being unloaded.</param>
+            <param term='custom'>Array of parameters that are host application specific.</param>
+            <seealso class='IDTExtensibility2' />
+        </member>
+        <member name="M:NHGenerate.Connect.OnAddInsUpdate(System.Array@)">
+            <summary>Implements the OnAddInsUpdate method of the IDTExtensibility2 interface. Receives notification when the collection of Add-ins has changed.</summary>
+            <param term='custom'>Array of parameters that are host application specific.</param>
+            <seealso class='IDTExtensibility2' />		
+        </member>
+        <member name="M:NHGenerate.Connect.OnStartupComplete(System.Array@)">
+            <summary>Implements the OnStartupComplete method of the IDTExtensibility2 interface. Receives notification that the host application has completed loading.</summary>
+            <param term='custom'>Array of parameters that are host application specific.</param>
+            <seealso class='IDTExtensibility2' />
+        </member>
+        <member name="M:NHGenerate.Connect.OnBeginShutdown(System.Array@)">
+            <summary>Implements the OnBeginShutdown method of the IDTExtensibility2 interface. Receives notification that the host application is being unloaded.</summary>
+            <param term='custom'>Array of parameters that are host application specific.</param>
+            <seealso class='IDTExtensibility2' />
+        </member>
+        <member name="T:NHGenerate.Core.ConfigScriptProperties">
+            <summary>
+            Responsible for retrieve parameters from registers.
+            </summary>
+        </member>
+        <member name="F:NHGenerate.Core.ConfigScriptProperties.RegistryDir">
+            <summary>
+            Location of the registry key.
+            </summary>
+        </member>
+        <member name="M:NHGenerate.Core.ConfigScriptProperties.SetValue(System.String,System.String)">
+            <summary>
+            Set registry key.
+            </summary>
+            <param name="key">Registry key.</param>
+            <param name="value">Default value if empty</param>
+        </member>
+        <member name="M:NHGenerate.Core.ConfigScriptProperties.GetValue(System.String,System.String)">
+            <summary>
+            Get registry key. Create key, if not exists.
+            </summary>
+            <param name="key">Registry key.</param>
+            <param name="defaultValue">Default value if empty.</param>
+            <returns>Registry value.</returns>
+        </member>
+        <member name="P:NHGenerate.Core.ConfigScriptProperties.DefaultScriptDatabase">
+            <summary>
+            Default class namespace.
+            </summary>
+        </member>
+        <member name="P:NHGenerate.Core.ConfigScriptProperties.UpdateScriptTemplate">
+            <summary>
+            Default class namespace.
+            </summary>
+        </member>
+        <member name="P:NHGenerate.Core.ConfigScriptProperties.UpdateScriptSchemaName">
+            <summary>
+            Default schema name.
+            </summary>
+        </member>
+        <member name="P:NHGenerate.Core.ConfigScriptProperties.UpdateScriptTableName">
+            <summary>
+            Default table name.
+            </summary>
+        </member>
+        <member name="P:NHGenerate.Core.ConfigScriptProperties.UpdateScriptUserName">
+            <summary>
+            User that create the script.
+            </summary>
+        </member>
+        <member name="T:NHGenerate.Core.ScriptGenerator">
+            <summary>
+            Generate new update script file name.
+            </summary>
+        </member>
+        <member name="M:NHGenerate.Core.ScriptGenerator.#ctor(NHGenerate.Core.DbConnection,NHGenerate.Core.ConfigScriptProperties)">
+            <summary>
+            Create instance of <see cref="T:NHGenerate.Core.ScriptGenerator"/> with connection to database.
+            </summary>
+            <param name="connection">Database connection.</param>
+        </member>
+        <member name="M:NHGenerate.Core.ScriptGenerator.GetFileName">
+            <summary>
+            Get new file name.
+            </summary>
+            <returns>Script file name.</returns>
+        </member>
+        <member name="F:NHGenerate.UI.ConnectionWindow.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:NHGenerate.UI.ConnectionWindow.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:NHGenerate.UI.ConnectionWindow.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:NHGenerate.Core.PageProperties">
+            <summary>
+            Responsible for retrieve parameters from registers.
+            </summary>
+        </member>
+        <member name="F:NHGenerate.Core.PageProperties.RegistryDir">
+            <summary>
+            Location of the registry key.
+            </summary>
+        </member>
+        <member name="M:NHGenerate.Core.PageProperties.SetValue(System.String,System.String)">
+            <summary>
+            Set registry key.
+            </summary>
+            <param name="key">Registry key.</param>
+            <param name="value">Default value if empty</param>
+        </member>
+        <member name="M:NHGenerate.Core.PageProperties.GetValue(System.String,System.String)">
+            <summary>
+            Get registry key. Create key, if not exists.
+            </summary>
+            <param name="key">Registry key.</param>
+            <param name="defaultValue">Default value if empty.</param>
+            <returns>Registry value.</returns>
+        </member>
+        <member name="P:NHGenerate.Core.PageProperties.DefaultNamespace">
+            <summary>
+            Default class namespace.
+            </summary>
+        </member>
+        <member name="P:NHGenerate.Core.PageProperties.IncludeColumnName">
+            <summary>
+            Whether to include column name.
+            </summary>
+        </member>
+        <member name="P:NHGenerate.Core.PageProperties.IncludeColumnSize">
+            <summary>
+            Whether to include column size.
+            </summary>
+        </member>
+        <member name="P:NHGenerate.Core.PageProperties.IncludeNotNull">
+            <summary>
+            Whether to include NotNull clause.
+            </summary>
+        </member>
+        <member name="P:NHGenerate.Core.PageProperties.UseShortTypeName">
+            <summary>
+            Whether to use short type name.
+            </summary>
+        </member>
+        <member name="T:NHGenerate.ResourceUI">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:NHGenerate.ResourceUI.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:NHGenerate.ResourceUI.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:NHGenerate.ResourceUI.CanNotConnectToTheServer">
+            <summary>
+              Looks up a localized string similar to Cannot connect to the server!.
+            </summary>
+        </member>
+        <member name="P:NHGenerate.ResourceUI.Warning">
+            <summary>
+              Looks up a localized string similar to Warning.
+            </summary>
+        </member>
+        <member name="T:NHGenerate.Core.Setting">
+            <summary>
+            Settings used to generate class model.
+            </summary>
+        </member>
+        <member name="P:NHGenerate.Core.Setting.Schema">
+            <summary>
+            Schema of table.
+            </summary>
+        </member>
+        <member name="P:NHGenerate.Core.Setting.Namespace">
+            <summary>
+            Class namespace.
+            </summary>
+        </member>
+        <member name="P:NHGenerate.Core.Setting.Table">
+            <summary>
+            Table name.
+            </summary>
+        </member>
+        <member name="P:NHGenerate.Core.Setting.IncludeColumnName">
+            <summary>
+            Whether to include column name.
+            </summary>
+        </member>
+        <member name="P:NHGenerate.Core.Setting.IncludeColumnSize">
+            <summary>
+            Whether to include column size.
+            </summary>
+        </member>
+        <member name="P:NHGenerate.Core.Setting.IncludeNotNull">
+            <summary>
+            Whether to include NotNull clause.
+            </summary>
+        </member>
+        <member name="P:NHGenerate.Core.Setting.UseShortTypeName">
+            <summary>
+            Whether to use short type name.
+            </summary>
+        </member>
+        <member name="F:NHGenerate.UI.SettingsWindow.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:NHGenerate.UI.SettingsWindow.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:NHGenerate.UI.SettingsWindow.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:NHGenerate.UI.SearchProgress.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:NHGenerate.UI.SearchProgress.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:NHGenerate.UI.SearchProgress.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:NHGenerate.UI.SearchResultControl.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:NHGenerate.UI.SearchResultControl.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:NHGenerate.UI.SearchResultControl.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:NHGenerate.UI.ConfigScriptWindow.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:NHGenerate.UI.ConfigScriptWindow.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:NHGenerate.UI.ConfigScriptWindow.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+    </members>
+</doc>
